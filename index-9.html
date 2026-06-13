@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convenio Hostelería Ciudad Real 2025-2027 | FeSMC-UGT</title>
+<style>
+  :root{
+    --rojo:#c8102e;
+    --rojo-oscuro:#9a0c22;
+    --rojo-muy-oscuro:#6e0818;
+    --gris-fondo:#f5f5f7;
+    --gris-texto:#2b2b2b;
+    --gris-claro:#e8e8ea;
+    --blanco:#ffffff;
+    --sombra: 0 2px 10px rgba(0,0,0,.08);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Segoe UI', Roboto, Arial, sans-serif;
+    background:var(--gris-fondo);
+    color:var(--gris-texto);
+    line-height:1.5;
+  }
+  /* HEADER */
+  header{
+    background:linear-gradient(135deg, var(--rojo) 0%, var(--rojo-muy-oscuro) 100%);
+    color:#fff;
+    padding:18px 20px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:var(--sombra);
+  }
+  header .top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    max-width:1200px;
+    margin:0 auto;
+  }
+  header .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  header .brand .logo{
+    background:#fff;
+    color:var(--rojo);
+    font-weight:800;
+    font-size:1.2rem;
+    padding:6px 10px;
+    border-radius:6px;
+    letter-spacing:1px;
+  }
+  header h1{
+    font-size:1.15rem;
+    font-weight:700;
+  }
+  header .subtitle{
+    font-size:.8rem;
+    opacity:.9;
+    font-weight:300;
+  }
+  .pendiente-badge{
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.4);
+    padding:4px 10px;
+    border-radius:20px;
+    font-size:.7rem;
+    letter-spacing:1px;
+    font-weight:600;
+    text-transform:uppercase;
+  }
+  /* SEARCH BAR */
+  .search-wrap{
+    max-width:1200px;
+    margin:14px auto 0;
+    position:relative;
+  }
+  #buscador{
+    width:100%;
+    padding:14px 46px 14px 46px;
+    border:none;
+    border-radius:10px;
+    font-size:1rem;
+    background:rgba(255,255,255,.95);
+    color:var(--gris-texto);
+    outline:none;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.04);
+  }
+  #buscador:focus{
+    box-shadow:0 0 0 3px rgba(255,255,255,.35);
+  }
+  .search-icon{
+    position:absolute;
+    left:14px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:1.1rem;
+    opacity:.6;
+  }
+  .clear-search{
+    position:absolute;
+    right:10px;
+    top:50%;
+    transform:translateY(-50%);
+    background:var(--rojo);
+    color:#fff;
+    border:none;
+    border-radius:50%;
+    width:26px;
+    height:26px;
+    cursor:pointer;
+    font-size:.9rem;
+    display:none;
+    align-items:center;
+    justify-content:center;
+  }
+  .search-results-info{
+    max-width:1200px;
+    margin:8px auto 0;
+    font-size:.8rem;
+    color:rgba(255,255,255,.85);
+    display:none;
+  }
+
+  /* LAYOUT */
+  .container{
+    max-width:1200px;
+    margin:0 auto;
+    display:flex;
+    gap:20px;
+    padding:20px;
+    align-items:flex-start;
+  }
+  /* SIDEBAR */
+  nav.sidebar{
+    flex:0 0 280px;
+    background:var(--blanco);
+    border-radius:10px;
+    box-shadow:var(--sombra);
+    padding:14px;
+    position:sticky;
+    top:120px;
+    max-height:calc(100vh - 140px);
+    overflow-y:auto;
+  }
+  nav.sidebar h2{
+    font-size:.85rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--rojo);
+    margin-bottom:10px;
+    border-bottom:2px solid var(--gris-claro);
+    padding-bottom:8px;
+  }
+  .cap-item{
+    margin-bottom:4px;
+  }
+  .cap-btn{
+    width:100%;
+    text-align:left;
+    background:none;
+    border:none;
+    padding:8px 10px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:.85rem;
+    font-weight:600;
+    color:var(--gris-texto);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:background .15s;
+  }
+  .cap-btn:hover{ background:var(--gris-claro); }
+  .cap-btn.activo{ background:var(--rojo); color:#fff; }
+  .art-list{
+    display:none;
+    padding-left:14px;
+    border-left:2px solid var(--gris-claro);
+    margin-left:10px;
+    margin-bottom:6px;
+  }
+  .art-list.abierto{ display:block; }
+  .art-link{
+    display:block;
+    padding:5px 8px;
+    font-size:.78rem;
+    color:#555;
+    text-decoration:none;
+    border-radius:4px;
+  }
+  .art-link:hover{ background:var(--gris-claro); color:var(--rojo); }
+  .art-link.activo{ color:var(--rojo); font-weight:700; background:#fdeceb; }
+
+  /* MAIN */
+  main{
+    flex:1;
+    min-width:0;
+  }
+  .alert-pendiente{
+    background:#fff3cd;
+    border:1px solid #ffe69c;
+    color:#664d03;
+    padding:10px 16px;
+    border-radius:8px;
+    font-size:.85rem;
+    margin-bottom:16px;
+  }
+  .card{
+    background:var(--blanco);
+    border-radius:10px;
+    box-shadow:var(--sombra);
+    padding:24px 28px;
+    margin-bottom:18px;
+    scroll-margin-top:160px;
+  }
+  .card h2.cap-title{
+    color:var(--rojo);
+    font-size:1.4rem;
+    border-bottom:3px solid var(--rojo);
+    padding-bottom:10px;
+    margin-bottom:18px;
+  }
+  .articulo{
+    margin-bottom:26px;
+    scroll-margin-top:160px;
+  }
+  .articulo:last-child{ margin-bottom:0; }
+  .articulo h3{
+    font-size:1.05rem;
+    color:var(--rojo-oscuro);
+    margin-bottom:8px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .art-num{
+    background:var(--rojo);
+    color:#fff;
+    font-size:.7rem;
+    font-weight:700;
+    padding:3px 8px;
+    border-radius:5px;
+    white-space:nowrap;
+  }
+  .articulo .cuerpo{
+    font-size:.92rem;
+    color:#333;
+    white-space:pre-line;
+  }
+  .articulo .cuerpo p{ margin-bottom:8px; }
+  mark{
+    background:#ffe066;
+    color:#000;
+    padding:0 2px;
+    border-radius:2px;
+  }
+  .oculto{ display:none !important; }
+
+  /* HOME */
+  .home-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+    gap:14px;
+    margin-top:6px;
+  }
+  .home-card{
+    background:var(--blanco);
+    border-radius:10px;
+    box-shadow:var(--sombra);
+    padding:18px;
+    cursor:pointer;
+    border-left:5px solid var(--rojo);
+    transition:transform .15s, box-shadow .15s;
+  }
+  .home-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 6px 18px rgba(0,0,0,.12);
+  }
+  .home-card h3{
+    color:var(--rojo-oscuro);
+    font-size:1rem;
+    margin-bottom:6px;
+  }
+  .home-card p{
+    font-size:.8rem;
+    color:#666;
+  }
+  .hero{
+    background:var(--blanco);
+    border-radius:10px;
+    box-shadow:var(--sombra);
+    padding:28px;
+    margin-bottom:20px;
+    text-align:center;
+  }
+  .hero h2{ color:var(--rojo); font-size:1.6rem; margin-bottom:10px; }
+  .hero p{ color:#555; font-size:.95rem; max-width:700px; margin:0 auto; }
+  .quick-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    justify-content:center;
+    margin-top:16px;
+  }
+  .tag{
+    background:var(--gris-claro);
+    border:none;
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:.8rem;
+    cursor:pointer;
+    color:var(--rojo-oscuro);
+    font-weight:600;
+    transition:background .15s, color .15s;
+  }
+  .tag:hover{ background:var(--rojo); color:#fff; }
+
+  /* TABLE */
+  table.salarial{
+    width:100%;
+    border-collapse:collapse;
+    font-size:.85rem;
+    margin-top:10px;
+  }
+  table.salarial th, table.salarial td{
+    border:1px solid var(--gris-claro);
+    padding:8px 10px;
+    text-align:left;
+  }
+  table.salarial th{
+    background:var(--rojo);
+    color:#fff;
+  }
+  table.salarial tr:nth-child(even) td{ background:#fafafa; }
+  .section-row td{ font-weight:700; background:#f0e2e2 !important; }
+
+  /* FOOTER */
+  footer{
+    text-align:center;
+    padding:24px;
+    font-size:.8rem;
+    color:#888;
+  }
+  footer strong{ color:var(--rojo-oscuro); }
+
+  /* SCROLL TOP */
+  #scrollTop{
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    background:var(--rojo);
+    color:#fff;
+    border:none;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    font-size:1.2rem;
+    cursor:pointer;
+    box-shadow:var(--sombra);
+    display:none;
+    z-index:99;
+  }
+  #scrollTop:hover{ background:var(--rojo-oscuro); }
+
+  /* RESPONSIVE */
+  @media (max-width: 880px){
+    .container{ flex-direction:column; }
+    nav.sidebar{
+      flex:none;
+      width:100%;
+      position:relative;
+      top:0;
+      max-height:none;
+    }
+    .card{ padding:18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="top">
+    <div class="brand">
+      <div class="logo">UGT</div>
+      <div>
+        <h1>Convenio Hostelería · Ciudad Real</h1>
+        <div class="subtitle">FeSMC-UGT Castilla-La Mancha · Vigencia 2025-2027</div>
+      </div>
+    </div>
+    <div class="pendiente-badge">Texto pendiente de publicación oficial</div>
+  </div>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="buscador" placeholder="Buscar por concepto: vacaciones, nocturnidad, lactancia, salario...">
+    <button class="clear-search" id="clearBtn" title="Limpiar búsqueda">✕</button>
+  </div>
+  <div class="search-results-info" id="searchInfo"></div>
+</header>
+
+<div class="container">
+
+  <nav class="sidebar" id="sidebar">
+    <h2>Índice</h2>
+    <div class="cap-item">
+      <button class="cap-btn" data-target="home">🏠 Inicio</button>
+    </div>
+    <!-- Capítulos se generan por JS -->
+  </nav>
+
+  <main id="main">
+    <!-- Contenido generado por JS -->
+  </main>
+
+</div>
+
+<button id="scrollTop" title="Subir">↑</button>
+
+<footer>
+  <strong>FeSMC UGT Ciudad Real</strong> · Residencial Ronda Bloque 5, Semisótano (13004) Ciudad Real ·
+  926 25 35 35 · ciudadreal@fesmcugt.org<br>
+  Herramienta de consulta no oficial elaborada para facilitar el acceso al texto del convenio. Documento «pendiente de publicación».
+</footer>
+
+<script>
+/* ==========================================================
+   DATOS DEL CONVENIO
+   Estructura: cada elemento = {cap: "Nombre capítulo", arts:[{num, titulo, texto}]}
+   ========================================================== */
+const DATA = [
+{
+  cap: "Capítulo 1. Disposiciones generales",
+  arts: [
+    {num:"1", titulo:"Partes firmantes", texto:
+`Son partes firmantes del presente Convenio Colectivo, la Asociación Provincial de Empresarios de Hostelería y Turismo (H y T) de Ciudad Real, como representación empresarial, y la Federación de Servicios, Movilidad y Consumo de la Unión General de Trabajadoras y Trabajadores (FeSMC-UGT) de Ciudad Real y la Federación de Servicios de Comisiones Obreras (Servicios-CCOO) de Ciudad Real, como representación sindical.`},
+
+    {num:"2", titulo:"Ámbito territorial", texto:
+`El presente convenio es de aplicación en todo el territorio de la Provincia de Ciudad Real.`},
+
+    {num:"3", titulo:"Ámbito funcional", texto:
+`El ámbito funcional de este Convenio Colectivo es el establecido en el Acuerdo Laboral de Ámbito Estatal para el Sector de Hostelería.
+
+Este convenio es de aplicación en todas las Empresas dedicadas a la actividad de Hostelería, que son las siguientes:
+
+• Hoteles, hostales, hoteles-residencias, hostales-residencias, paradores, hoteles-apartamentos, residencias-apartamentos, moteles, alojamientos rurales y camping.
+• Pensiones, fondas, casas de huéspedes y posadas.
+• Restaurantes, casas de comidas, catering, tabernas que sirvan comidas, pizzerías, hamburgueserías y creperías.
+• Cafeterías.
+• Cafés, cafés-bares, bares americanos, whiskerías, cervecerías, chocolaterías, heladerías y degustaciones.
+• Salas de fiestas y té, discotecas, tablaos flamencos, salones de baile y cafés teatro.
+• Tabernas que no sirvan comidas.
+• Casinos.
+• Servicios de comidas/bebidas en billares, bingos y salones recreativos.
+• Albergues y balnearios.
+• Servicios de hostelería en residencias de ancianos.`},
+
+    {num:"4", titulo:"Ámbito personal", texto:
+`Se regirán por las presentes normas de este convenio todo el personal que preste sus servicios en las empresas comprendidas en el artículo anterior.`},
+
+    {num:"5", titulo:"Vigencia y denuncia", texto:
+`La duración de este convenio será de tres años, contados desde el día 1 de enero de 2025 hasta el 31 de diciembre de 2027, ambos inclusive.
+
+El convenio finalizará su vigencia el 31 de diciembre de 2027, quedando denunciado en este mismo momento.
+
+El convenio prorrogará sus efectos hasta la firma de un nuevo convenio.`},
+  ]
+},
+
+{
+  cap: "Capítulo 2. Condiciones profesionales",
+  arts: [
+    {num:"6", titulo:"Contratos de trabajo", texto:
+`Los contratos de trabajo se formalizarán por escrito, especificando las condiciones de trabajo.
+
+Se entregará una copia a la persona trabajadora en el momento de la firma del mismo, que deberá realizarse en presencia de la RLPT. Se facilitará una copia del mismo a la Representación Sindical, así como de las prórrogas. En los casos de subcontratación, la representación sindical de la Empresa principal deberá recibir la misma documentación.
+
+CONTRATO INDEFINIDO
+Ambas partes reconocen la conveniencia de este tipo de contrato, para una mayor estabilidad en el empleo, que pueda suponer a su vez mayor rentabilidad y estabilidad de la empresa y, en consecuencia, recomiendan la conversión de contratos temporales vigentes en dicha modalidad.
+
+CONTRATO FIJO DISCONTINUO
+Se estará a lo dispuesto en el artículo 16 del Texto refundido de la Ley del Estatuto de los Trabajadores.
+
+El contrato indefinido fijo-discontinuo se concertará para la realización de trabajos de naturaleza estacional o vinculados a actividades productivas temporales o para el desarrollo de aquellas que no tengan dicha naturaleza pero que siendo de prestación intermitente, tengan periodos de ejecución ciertos, determinados o indeterminados. La contratación podrá realizarse tanto a jornada completa, como a jornada parcial.
+
+En el contrato de trabajo vendrá perfectamente detallado el centro de trabajo, categoría profesional y fechas de contratación.
+
+El llamamiento de las personas trabajadoras fijas-discontinuas deberá ser llevado a cabo por cualquier medio que deje constancia de su notificación a la persona interesada con las indicaciones precisas de su reincorporación, preferiblemente por correo electrónico facilitado por la persona trabajadora, por llamada telefónica o comunicación WhatsApp y con una antelación mínima de tres días naturales.
+
+Al objeto de posibilitar el llevarse a cabo la comunicación del llamamiento a la actividad, la persona trabajadora facilitará sus datos (domicilio, teléfono móvil y, en su caso, correo electrónico) y los mantendrá debidamente actualizados, poniendo en conocimiento de la Empresa cualquier variación de los mismos.
+
+El llamamiento preferiblemente se efectuará en el siguiente orden:
+— persona trabajadora con más experiencia en el servicio en la empresa para el mismo puesto.
+— persona trabajadora con más tiempo de antigüedad en la empresa.
+
+La duración mínima del contrato fijo discontinuo no podrá ser inferior a cuatro meses, ni superior a los diez meses en cómputo anual, salvo que por la naturaleza de los trabajos cíclicos dicho plazo mínimo fuera inferior.
+
+Las personas trabajadoras podrán declinar dicho llamamiento, hasta en tres ocasiones al año, siempre que concurran causas para ello, como encontrarse trabajando en otra empresa, no encontrarse en la localidad del centro de trabajo o encontrarse en situación que pudiera dar lugar a alguna licencia o permiso retribuido sin que ello pueda ser considerado baja voluntaria de la persona trabajadora.
+
+La empresa notificará a la RLPT, así como a las personas fijas discontinuas la existencia de vacantes a cubrir. Dichas vacantes deberán ser cubiertas por riguroso orden de antigüedad de las personas trabajadoras fijas-discontinuas, las cuales mantendrán una opción preferente sobre las contrataciones externas.
+
+La empresa podrá retrasar el llamamiento por un máximo de 10 días, siempre y cuando lo comunique por escrito a la persona trabajadora, antes de que transcurra el tiempo máximo de inactividad o desde la fecha habitual de su llamamiento. En dicha comunicación constará la fecha cierta de su reincorporación.
+
+El ejercicio por la empresa de las facultades establecidas en el párrafo anterior, en ningún caso supondrá merma ni perjuicio a la garantía de periodos mínimos de ocupación contratados.
+
+Se presumirá no efectuado el llamamiento:
+a) Transcurridos 10 días naturales desde la fecha en que se vayan a llevar a cabo las actividades para las que es contratada la persona trabajadora.
+b) Cuando la empresa comunique fehacientemente la decisión de extinguir el contrato de trabajo.
+
+Se establece una garantía mínima de ocupación de 4 meses al año para la celebración de bodas, bautizos y comuniones de temporada, salvo cuando las características de los trabajos efectuados o por la temporada en que éstos se desarrollen, sea inferior en jornadas a la garantía establecida.
+
+Dentro de la garantía de ocupación se computan tanto el tiempo efectivo de servicios como los descansos computables como de trabajo, tales como descanso semanal, descanso entre jornadas, vacaciones, fiestas, permisos retribuidos y las suspensiones legales del contrato de trabajo. Las vacaciones generadas por la garantía de ocupación serán disfrutadas de común acuerdo entre empresa y persona trabajadora.
+
+CONTRATO POR CIRCUNSTANCIAS DE LA PRODUCCIÓN IMPREVISIBLES
+Se estará a lo dispuesto en el artículo 15 de la Ley del Estatuto de los Trabajadores y su duración máxima será de 9 meses.`},
+
+    {num:"7", titulo:"Vacantes", texto:
+`Las vacantes que se produzcan serán puestas en conocimiento de los órganos de representación de las personas trabajadoras, si existieran en la Empresa, por parte de la Dirección de la misma en el momento en que se produzcan.
+
+Serán cubiertas por personal de la empresa, que reúnan las condiciones para ocupar dicho puesto, en caso de que las vacantes no se puedan cubrir por este personal o se creen nuevos puestos de trabajo, serán cubiertos por las personas trabajadoras que anteriormente hayan estado ligadas a la empresa y hayan cesado su relación laboral con la misma por expediente de crisis, siguiendo el orden de antigüedad.
+
+Tendrán preferencia a cubrir posibles vacantes las personas trabajadoras contratadas a tiempo parcial indefinidos, para posibilitar la ampliación de su jornada y mejora de condiciones laborales.`},
+
+    {num:"8", titulo:"Contratos de formación en alternancia", texto:
+`Para esta modalidad, se estará a lo dispuesto en el artículo 11 del Estatuto de los Trabajadores, Acuerdo Laboral de ámbito Estatal para el sector de Hostelería y restante legislación vigente.
+
+La retribución de los contratos de formación en alternancia que sean formalizados no podrá ser inferior al 85% para el primer año y del 90% para el segundo año de vigencia del contrato, exclusivamente del salario base previsto para el NIVEL IV de este convenio.
+
+El tiempo de trabajo efectivo, que habrá de ser compatible con el tiempo dedicado a las actividades formativas en el centro de formación, no podrá ser superior al 65 por ciento, durante el primer año, o al 85 por ciento, durante el segundo, de la jornada máxima prevista en este convenio.
+
+En lo no dispuesto en este artículo se estará a lo establecido en la legislación vigente.`},
+
+    {num:"9", titulo:"Período de prueba", texto:
+`Se estará a lo establecido en el Acuerdo Laboral de Ámbito Estatal para el sector de Hostelería.`},
+
+    {num:"10", titulo:"Expediente de crisis", texto:
+`La decisión de presentar un expediente de regulación de empleo, se regirá por lo establecido en el artículo 47 del ET y normativa de desarrollo. La empresa se compromete a informar de dicha decisión a los representantes de las personas trabajadoras, con un mínimo de quince días de antelación a su presentación en el Organismo competente.
+
+En los casos de expediente de crisis, las empresas estarán obligadas a garantizar el acceso, a los representantes de las personas trabajadoras y sus asesores, a los libros de contabilidad, administración de la empresa, cartera de pedidos, clientes, etc.
+
+Cuando se produzca el cambio de titularidad de la empresa todas las personas trabajadoras dispondrán de una carta individual en la que se reconozcan todos sus derechos adquiridos, antigüedad, salario, categoría profesional etc., siendo firmado por la antigua y nueva empresa.
+
+Y todo ello bajo las previsiones contenidas en los artículos 47 y 51 del Estatuto de Los Trabajadores, desarrollados por el Real Decreto 1483/2012.`},
+
+    {num:"11", titulo:"Traslado de personal", texto:
+`Los traslados de personal sólo podrán efectuarse por solicitud de la persona interesada, por acuerdo entre la empresa y la persona trabajadora y por permuta con otra persona trabajadora de distinta localidad, siempre que exista acuerdo entre ambas.
+
+En los casos no previstos en este artículo se estará a lo dispuesto en la Legislación vigente en la materia.`},
+
+    {num:"12", titulo:"Despido", texto:
+`Cuando se produzca el despido de personal o reducción de plantilla por las causas que fuere, las empresas comunicarán en la misma fecha su decisión a la RLPT, sin que el no hacerlo presuponga nulidad de despido o del expediente de regulación de empleo.
+
+En los casos no previstos en este artículo se estará a lo dispuesto en la Legislación vigente en la materia.`},
+
+    {num:"13", titulo:"Finiquito", texto:
+`Todos los finiquitos que se suscriban con ocasión de cese o despido de una persona trabajadora, se efectuarán por escrito y con la firma en el mismo acto de un representante de las personas trabajadoras de la empresa o, en su defecto, de un o una testigo o con el visto bueno de una de las Centrales Sindicales.
+
+De no cumplirse tal requisito no tendrá carácter liberatorio.`},
+
+    {num:"14", titulo:"Subrogaciones", texto:
+`Al término de una adjudicación de contrata y/o subcontratación del servicio de cafetería o restaurante, o bien por compra de la empresa, las personas trabajadoras que hayan estado prestando sus servicios en la misma, pasarán a la nueva titular con los mismos derechos y garantías que estos tuvieran reconocidos.
+
+No será preciso realizar a estas personas trabajadoras nuevo contrato de trabajo.`},
+  ]
+},
+
+{
+  cap: "Capítulo 3. Jornada, horario y descansos",
+  arts: [
+    {num:"15", titulo:"Jornada laboral", texto:
+`La jornada laboral será en cómputo anual de 1798 horas para el año 2025 y 2026 y 1792 para el año 2027. Debido a la reducción de jornada, las personas trabajadoras disfrutarán de dos días de descanso, completos y retribuidos.`},
+
+    {num:"16", titulo:"Horario de trabajo", texto:
+`La modificación de los horarios de trabajo la realizará la empresa, de mutuo acuerdo con la RLPT. Los turnos y los días de libranza no se modificarán arbitrariamente.
+
+La empresa sólo los podrá modificar por causa excepcional dando cuenta a la RLPT.
+
+En su defecto, deberá de mediar previo acuerdo con la persona trabajadora.
+
+En la jornada de trabajo de carácter partido, el turno tendrá como máximo cinco horas y como mínimo tres.`},
+
+    {num:"17", titulo:"Descanso semanal", texto:
+`La persona trabajadora tendrá derecho a un descanso semanal de día y medio ininterrumpido. En aquellas empresas donde se negocie entre la dirección de la misma y las personas trabajadoras o su representación legal el descanso semanal, se podrá pactar que tal descanso se prolongue a dos días ininterrumpidos, dejando constancia escrita de tal acuerdo.
+
+Asimismo, si la jornada se realiza en cómputo bisemanal, el descanso semanal será de 2 días de descanso por semana, es decir 10 días de trabajo y cuatro de descanso. El disfrute de dichos días de descanso se pactará entre empresa y personas trabajadoras. Cuando la empresa opte por dicho cómputo bisemanal habrá de comunicarlo por escrito, adjuntando calendario con antelación de 7 días a las personas trabajadoras, incluyendo horario; horario que no se considerará como modificación del mismo en relación a lo previsto en el artículo 16.
+
+Las empresas garantizarán la libranza de 11 sábados, domingos o festivos al año.
+
+En cualquier caso, el descanso semanal para las personas trabajadoras menores de 18 años, será de dos días ininterrumpidos.`},
+
+    {num:"18", titulo:"Vacaciones", texto:
+`Se establece un período de vacaciones anual de 25 días laborables, garantizándose 30 días naturales.
+
+Entre 15 de junio y 15 de septiembre se disfrutarán un mínimo de 7 días consecutivos, pudiendo la empresa excluir, con motivo de especial aumento de actividad en la localidad (fiestas patronales, festivales…) hasta un mes, que podrá ser dividido en dos períodos de 15 días, comprendidos en el periodo de referencia.
+
+A efectos de retribuciones, se considerará el salario de 30 días de salario base más antigüedad.
+
+Las personas trabajadoras que llevasen menos de un año al servicio de la empresa, disfrutarán de un mínimo de días de vacaciones proporcional a su antigüedad en la empresa, la persona trabajadora percibirá con cargo a la empresa el salario fijo garantizado correspondiente a su categoría profesional participando, en su caso, en el porcentaje de servicio, sea o no sustituido.
+
+Tanto si se disfrutan en uno o dos períodos, las vacaciones se comenzarán a disfrutar en los lunes no festivos, salvo acuerdo entre empresa y personas trabajadoras. La Empresa, a solicitud de la persona trabajadora, vendrá obligada a entregar un justificante con expresión de la fecha de inicio y fin de las vacaciones.
+
+Cuando el período de vacaciones fijado en el calendario laboral de la empresa coincida en el tiempo con la incapacidad temporal derivada de embarazo, del parto o la lactancia natural o el periodo de suspensión del contrato por riesgo durante el embarazo o lactancia natural, se tendrá derecho a disfrutar las vacaciones al finalizar el período de suspensión, aunque haya terminado el año natural al que corresponde. Y esta previsión es extensible a los casos de incapacidad temporal por enfermedad común.`},
+
+    {num:"19", titulo:"Fiestas", texto:
+`Las fiestas locales, regionales y nacionales, de no disfrutarse en su fecha, podrán de común acuerdo entre empresa y persona trabajadora:
+a. Ser acumuladas al período anual de vacaciones.
+b. Ser disfrutadas continuadas en período distinto.
+c. Ser disfrutadas en otro día distinto acumuladas al descanso semanal.
+
+Cuando, excepcionalmente y por razones técnicas u organizativas no se pudiera disfrutar el día de fiesta correspondiente, la empresa vendrá obligada a abonar a la persona trabajadora además de los salarios correspondientes a la semana, el importe de las horas trabajadas en el día festivo, incrementadas en un 85% como mínimo, salvo descanso compensatorio o mutuo acuerdo de las partes.`},
+
+    {num:"20", titulo:"Licencias", texto:
+`La persona trabajadora, podrá faltar o ausentarse del trabajo con derecho a remuneración, por los motivos y durante tiempo mínimo que a continuación se señala y ello, no obstante, de otras causas y por los tiempos previstos en artículo 37.3 del ET, debiendo avisar con la máxima antelación posible, al menos 7 días salvo casos imprevisibles, garantizando con ello la debida organización del trabajo. Igualmente, deberá justificarse adecuada y nominativamente.
+
+a. Por comunión y bautizo de hijos o hijas: 1 día.
+
+b. Por matrimonio o inscripción en el registro de parejas de hecho de la persona trabajadora, como único permiso en uno u otro caso: 17 días.
+
+c. Cinco días por accidente o enfermedad graves, hospitalización o intervención quirúrgica sin hospitalización que precise reposo domiciliario del cónyuge, pareja de hecho o parientes hasta el segundo grado por consanguinidad o afinidad, incluido el familiar consanguíneo de la pareja de hecho, así como de cualquier otra persona distinta de las anteriores, que conviva con la persona trabajadora en el mismo domicilio y que requiera el cuidado efectivo de aquella.
+
+d. Por fallecimiento de los familiares anteriores, 3 días ampliables a 5 si hay desplazamiento a más de 50 kilómetros de la localidad de residencia de la persona trabajadora.
+
+e. Por traslado de su domicilio habitual: 2 días
+
+f. Por matrimonio de padres, madres, hermanos, hermanas, hijos e hijas, 1,2 o 3 días, según que la boda tenga lugar en su localidad, en la provincia o fuera de los límites de la misma respectivamente
+
+g. Por el tiempo indispensable para el cumplimiento de un deber inexcusable de carácter público o personal.
+
+h. Por el tiempo necesario que precise la persona trabajadora para concurrir a exámenes en Centros de Formación Profesional, Académica o Social, siendo retribuidos los diez primeros días al año, no retribuyéndose los que excedan del mencionado número.
+
+i. Por el tiempo indispensable para visitar al médico del Sistema Público de Salud, acreditando debidamente la visita médica.
+
+j. Crédito máximo de 40 horas anuales retribuidas para asistencia a cursos de formación, que serán preseleccionados entre la empresa y la persona trabajadora.
+
+k. Un día por asuntos propios con el preaviso suficiente, y que no podrá disfrutarse unido a vacaciones. No podrá disfrutar el mismo día más de una persona trabajadora por sección o departamento, salvo expresa autorización de la empresa.
+
+l. Hasta 4 días al año de permiso retribuido para acompañar a consulta médica a hijos e hijas menores de 12 años o hijos e hijas mayores con discapacidad, previa justificación de esas circunstancias. Este permiso se disfrutará siempre y cuando ambos cónyuges trabajen. Estos días podrán utilizarse también para el acompañamiento al médico de padres y madres a cargo.
+
+Si se utilizasen más de los días establecidos, los días de exceso se considerarán como permiso no retribuido a recuperar por la persona trabajadora.
+
+m. Por el tiempo indispensable para la realización de exámenes prenatales y técnicas de preparación al parto y, en los casos de adopción, guarda con fines de adopción o acogimiento, para la asistencia a las preceptivas sesiones de información y preparación y para la realización de los preceptivos informes psicológicos y sociales previos a la declaración de idoneidad, siempre, en todos los casos, que deban tener lugar dentro de la jornada de trabajo.
+
+n. Permiso retribuido por el tiempo imprescindible para la realización del examen tanto teórico como práctico necesario para la obtención del carnet de conducir, no retribuyéndose en el caso de que deba ser repetido uno u otro, debiendo ser solicitado todo ello con el preaviso suficiente.
+
+Para establecer la relación de afinidad, se tendrán los mismos derechos tanto si se trata de matrimonio o de parejas de hecho inscritas.`},
+
+    {num:"21", titulo:"Lactancia", texto:
+`Las personas trabajadoras, por su voluntad, podrán sustituir el derecho a disfrutar una hora de ausencia de trabajo por lactancia de un hijo menor de nueve meses por su acumulación en jornadas completas equivaliendo a 20 días naturales.`},
+
+    {num:"22", titulo:"Reducción de jornada por guarda legal y cuidado de menores afectados por cáncer u otra enfermedad grave", texto:
+`Se estará a lo dispuesto en el art. 37.6 del ET y demás legislación vigente que regule la materia.`},
+
+    {num:"23", titulo:"Permiso por nacimiento y cuidado del menor", texto:
+`Se estará a lo dispuesto en el Estatuto de los Trabajadores y demás legislación vigente que regule la materia.`},
+
+    {num:"24", titulo:"Excedencia especial sin sueldo", texto:
+`Con motivo de enfermedad de padres, madres, hermanos, hermanas, hijos, hijas y cónyuge, que requieran especiales y continuas atenciones, la persona trabajadora podrá solicitar excedencia especial sin sueldo por una duración máxima de tres meses.
+
+La empresa no estará obligada a la concesión de esta excedencia cuando, existiendo otras personas trabajadoras de la misma categoría, el hecho de la concesión implique la ausencia de todas las personas trabajadoras de esta categoría, siendo obligatoria su concesión en caso contrario.
+
+Para la concesión de esta excedencia sin sueldo, será obligatoria la justificación mediante certificado médico de que concurren las circunstancias señaladas en el párrafo primero.
+
+Si la evolución de la enfermedad es favorable, la persona trabajadora podrá solicitar, el reingreso en la empresa antes de finalizar el plazo solicitado, siendo obligatoria para la empresa su readmisión desde la fecha de petición que deberá ser hecha por escrito.
+
+Las empresas podrán contratar para suplir a la persona trabajadora en situación de excedencia especial sin sueldo, otra persona trabajadora mediante el correspondiente contrato de interinidad, debiendo cesar el interino al incorporarse la persona trabajadora fija.
+
+La excedencia especial sin sueldo, supondrá la baja de la persona trabajadora en la Seguridad Social, mientras dure dicha excedencia.`},
+
+    {num:"25", titulo:"Excedencias por cuidado de hijos, hijas y familiares", texto:
+`Las Excedencias por cuidado de hijos, hijas y familiares, indicadas en el artículo 46.3 ET, tendrán una duración de hasta 4 años, si bien la reserva del puesto de trabajo se mantiene sólo respecto del primer año.`},
+
+    {num:"26", titulo:"Calendario laboral", texto:
+`Durante el primer trimestre del año se elaborará conjuntamente entre empresa y los representantes de las personas trabajadoras el calendario laboral que deberá comprender, las fiestas locales y el periodo para el disfrute de vacaciones, así como la fijación de los puestos y turnos de trabajo.
+
+A los efectos de distribución de la jornada, la empresa realizará calendario quincenal que habrá de comunicarse y adjuntarse con al menos 7 días de antelación a las personas trabajadoras, en el mismo deberá constar la jornada diaria, los días de descanso, turnos, compensación de festivos, etc.
+
+En ningún caso la jornada diaria podrá exceder de 9 horas ni ser inferior a 7 horas, compensándose los excesos semanales y/o bisemanales dentro del mes natural. Excepcionalmente y mediando acuerdo entre las partes, podrán realizarse jornadas de más de 9 horas diarias, para atender eventos excepcionales y/o puntuales (bodas, bautizos…) siempre atendiendo a los límites legales previstos de descanso entre jornadas en el art.34 del E.T., en este caso, la hora de exceso será compensada como hora y media, económicamente o, preferiblemente, con descansos.`},
+
+    {num:"27", titulo:"Horas extraordinarias", texto:
+`Quedan suprimidas las horas extraordinarias habituales. En casos excepcionales podrán realizarse horas extraordinarias con los límites determinados por la legislación vigente, percibiéndose las mismas con un 75% de recargo sobre la hora ordinaria.
+
+La iniciativa para trabajar en horas extraordinarias corresponde a la empresa y serán de libre aceptación de la persona trabajadora.`},
+  ]
+},
+
+{
+  cap: "Capítulo 4. Condiciones sociales",
+  arts: [
+    {num:"28", titulo:"Ayuda por fallecimiento", texto:
+`En caso de fallecimiento de una persona trabajadora, la empresa estará obligada a satisfacer a sus derechohabientes el importe de tres mensualidades iguales cada una al salario real.`},
+
+    {num:"29", titulo:"Indemnización por accidente de trabajo", texto:
+`En el caso de muerte o invalidez permanente sobrevenida por accidente de trabajo de la persona trabajadora, las empresas abonarán a los derechohabientes o a ésta las cantidades que se establecen en el Anexo de Condiciones Económicas, sin que esta indemnización sea óbice para la percepción del subsidio correspondiente.
+
+La empresa entregará una copia de la póliza correspondiente o certificación expedida en forma legal por la compañía de seguro a cada una de las personas trabajadoras.`},
+
+    {num:"30", titulo:"Premios de vinculación", texto:
+`Las personas trabajadoras que entre 60 y 65 años extingan su relación laboral con la empresa y en dicho momento hayan prestado al menos diez años de servicio en la misma, percibirán un premio de vinculación de la empresa consistente en:
+
+- A los 65 años, 6 mensualidades del salario garantizado de este convenio.
+- A los 64 años, 7 mensualidades del salario garantizado de este convenio.
+- A los 63 años, 8 mensualidades del salario garantizado de este convenio.
+- A los 62 años, 9 mensualidades del salario garantizado de este convenio.
+- A los 61 años, 10 mensualidades del salario garantizado de este convenio.
+- A los 60 años, 11 mensualidades del salario garantizado de este convenio.
+
+Este artículo no será de aplicación a las personas trabajadoras acogidas al artículo 31 de este convenio.`},
+
+    {num:"31", titulo:"Jubilación parcial", texto:
+`La persona trabajadora afectada por el presente convenio colectivo que lo solicite y reúna los requisitos legales para ello, podrá acceder a la jubilación parcial regulada en el artículo 215.2 de la Ley General de la Seguridad Social (Real Decreto Legislativo 8/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley General de la Seguridad Social) y el artículo 12.6 del Estatuto de los Trabajadores.
+
+La persona trabajadora que decida optar a una jubilación deberá comunicarlo a la empresa, quedando esta obligada a aceptar dicha decisión y a contratar mediante un contrato de relevo en los términos establecidos en el artículo 12.7 del Estatuto de los Trabajadores.`},
+
+    {num:"32", titulo:"Enfermedad o accidente", texto:
+`Al personal de las empresas afectadas por el presente convenio en el periodo en que se encuentran en dicha situación, se les complementará las prestaciones que abona la Seguridad Social por el concepto de enfermedad y accidente de trabajo, hasta el 100% del salario que les corresponda según el presente convenio.
+
+A los efectos de aplicación del presente artículo, la empresa no abonará complemento alguno por el plus permanencia del artículo 41.
+
+De conformidad con lo previsto en el art. 20.4 del E.T., el empresario podrá verificar el estado de salud de la persona trabajadora que sea alegado por esta para justificar sus faltas de asistencia al trabajo, mediante reconocimiento a cargo de personal médico. La negativa de la persona trabajadora a dichos reconocimientos podrá determinar la suspensión de los derechos económicos que pudieran existir a cargo del empresario para dichas situaciones.`},
+  ]
+},
+
+{
+  cap: "Capítulo 5. Prevención y salud",
+  arts: [
+    {num:"33", titulo:"Salud laboral", texto:
+`Se estará a lo dispuesto en la Ley 31/1995 de Prevención de Riesgos Laborales y en el Acuerdo Laboral de ámbito Estatal para el sector de Hostelería.
+
+En caso de riesgos de accidente de trabajo se podrá interrumpir las actividades laborales en estos puestos de trabajo conforme a lo dispuesto en la Ley de Prevención de Riesgos.`},
+
+    {num:"34", titulo:"Vigilancia de la salud", texto:
+`Se estará a lo dispuesto en el artículo 22 de la Ley 31/1995 de Prevención de Riesgos Laborales.
+
+La empresa garantizará el derecho de la persona trabajadora a la vigilancia de su salud, pudiendo realizar una revisión médica anual que tendrá carácter voluntario para la persona trabajadora, excepto en los supuestos recogidos en dicho artículo. El resultado de la revisión será comunicado por escrito al trabajador.
+
+El tiempo necesario para realizar la mencionada revisión, así como el necesario para el desplazamiento de la misma, será considerado como tiempo efectivo dentro de la jornada laboral.`},
+
+    {num:"35", titulo:"Riesgo durante el embarazo y la lactancia", texto:
+`Se estará a lo establecido en el artículo 26 de la Ley 31/1995 de Prevención de Riesgos Laborales.`},
+
+    {num:"36", titulo:"Equipos de trabajo y medios de protección", texto:
+`Se estará a lo establecido en el artículo 17 de la Ley 31/1995 de Prevención de Riesgos Laborales.
+
+Las empresas vendrán obligadas a proporcionar a su personal los uniformes, así como la ropa de trabajo.
+
+La Representación Legal de las Personas Trabajadoras, de común acuerdo con la empresa fijarán los plazos mínimos de duración del uniforme y ropa de trabajo, existiendo como mínimo vestuario de verano y de invierno.
+
+La empresa podrá facilitar estos medios o proceder a su compensación en metálico.`},
+
+    {num:"37", titulo:"Evaluación de riesgos", texto:
+`Se estará a lo dispuesto en el artículo 16 de la Ley 31/1995 de Prevención de Riesgos Laborales.
+
+La acción preventiva en la empresa se planificará por el empresario a partir de la preceptiva evaluación inicial de riesgos, evaluación que habrá de realizarse, con carácter general, teniendo en cuenta la naturaleza de la actividad y los posibles riesgos especiales. Si los resultados de la evaluación lo hiciesen necesario, el empresario realizará las actividades de prevención necesarias, para garantizar el mayor nivel de protección de la seguridad y salud de las personas trabajadoras.`},
+
+    {num:"38", titulo:"Delegados y delegadas de prevención", texto:
+`Se estará a lo dispuesto en el Capítulo V de la Ley 31/1995 de Prevención de Riesgos Laborales.
+
+La empresa consultará a los delegados o las delegadas de prevención para la contratación de los servicios de prevención ajenos o implantación de servicios de prevención propios.`},
+  ]
+},
+
+{
+  cap: "Capítulo 6. Condiciones económicas",
+  arts: [
+    {num:"39", titulo:"Incrementos salariales", texto:
+`El salario mínimo garantizado que corresponde a la persona trabajadora, con arreglo a su categoría profesional, vendrá determinado por la aplicación de los correspondientes valores salariales establecidos en la tabla del convenio. Los salarios que figuran en la tabla salarial ANEXO I tendrán carácter de mínimos.
+
+El salario base previsto para cada categoría será calculado de manera proporcional a la jornada de trabajo realizada.
+
+SUBIDA SALARIAL:
+
+Año 2025: se mantienen las condiciones económicas del año 2024.
+
+Año 2026: incremento del 3,5% sobre las tablas provisionales del año 2025. En el supuesto de que el I.P.C. interanual a 31 de diciembre de 2026 resulte por encima de este 3,5%, se revisarán las condiciones económicas en el exceso de dicho I.P.C. con el tope del 0,5% aplicable a partir del 01/01/2027, quedando el salario incrementado, en su caso, como base para el incremento pactado para el año 2027.
+
+Año 2027: incremento del 3,5% sobre las condiciones del año 2026. En el supuesto de que el I.P.C. interanual a 31 de diciembre de 2027 resulte por encima de este 3,5%, se revisarán las condiciones económicas en el exceso de dicho I.P.C. con el tope del 0,5% aplicable a partir del 01/01/2028, quedando el salario incrementado, en su caso, como base para la siguiente negociación.`},
+
+    {num:"40", titulo:"Antigüedad", texto:
+`El complemento de antigüedad se remunerará de la siguiente forma:
+1. Un 3% sobre el salario garantizado al cumplirse los 3 años efectivos de trabajo.
+2. Un 8% al cumplir los 6 años.
+3. Un 16% al cumplir los 9 años
+4. Un 25% al cumplir los 15 años.
+5. Un 40% al cumplir los 20 años.
+6. Un 45% al cumplir los 24 años.
+
+La fecha inicial para la determinación de la antigüedad será la de ingreso en la empresa.
+
+Se computarán, asimismo, para el tiempo de permanencia los periodos de prueba y aprendizaje, los de incapacidad temporal, así como la excedencia forzosa.`},
+
+    {num:"41", titulo:"Plus por permanencia", texto:
+`Las personas trabajadoras afectadas por el presente convenio percibirán un plus por permanencia en razón de las horas semanales contratadas o efectivamente realizadas en su caso, cuya cuantía se establece en el Anexo de Condiciones Económicas.
+
+Dicho plus se abonará con carácter mensual por doce meses al año y no se devengará durante la situación de incapacidad temporal, cualquiera que sea la contingencia determinante de la misma.`},
+
+    {num:"42", titulo:"Plus de nocturnidad", texto:
+`1. Las personas trabajadoras que presten servicios, al menos, durante dos terceras partes de su jornada ordinaria de trabajo en horas nocturnas y para empresas con ciclos productivos ininterrumpidos de veinticuatro horas, tendrán derecho a percibir un complemento de nocturnidad, cuya cuantía se establece en el Anexo de Condiciones Económicas, por cada jornada de trabajo nocturna efectivamente realizada a partir de las 22:00 horas; los trabajos realizados con anterioridad a dicha hora y, aun teniendo la consideración legal de nocturnos, no devengarán complemento alguno al serles de aplicación lo dispuesto en el punto 2 del presente artículo.
+
+2. Las partes negociadoras manifiestan expresamente que los salarios fijados en el presente Convenio Colectivo y, con la excepción hecha anteriormente, han sido fijados atendiendo a la naturaleza nocturna de los trabajos en el sector de la hostelería.`},
+
+    {num:"43", titulo:"Pagas extraordinarias", texto:
+`Todo el personal afectado por este convenio tendrá derecho a percibir tres pagas extraordinarias, una de marzo, una de verano y otra de Navidad, que se abonarán respectivamente en la primera quincena de marzo, primera quincena de Julio y el 22 de diciembre, a razón de una mensualidad cada una de ellas del salario garantizado reflejado en la tabla anexa, más la antigüedad, a excepción de la de marzo que se percibirá sólo por 30 días de salario.
+
+El personal temporal, tendrá derecho a la parte proporcional de las pagas extraordinarias al finalizar su relación laboral con la empresa.`},
+
+    {num:"44", titulo:"Plus de distancia", texto:
+`Durante la vigencia de este convenio y desde su publicación, las personas trabajadoras, y siempre que la empresa no proporcione los medios oportunos para el transporte al lugar de trabajo, percibirán de su empresa, en concepto de plus de distancia la cantidad por Km. establecida en el Anexo de Condiciones Económicas, tanto a la ida como a la vuelta, siempre que el centro de trabajo se encuentre a más de dos Km. de distancia del casco urbano de la localidad donde haya sido contratada la persona trabajadora.`},
+
+    {num:"45", titulo:"Manutención", texto:
+`Las personas trabajadoras que presten sus servicios en establecimientos que sirvan comidas y/o cenas, y cuyo horario de trabajo coincida con el servicio de comidas y/o cenas, tendrán derecho a manutención que percibirán como compensación salarial en especie, con cargo a la empresa y durante los días que presten sus servicios.
+
+El complemento en especie de manutención podrá sustituirse mediante la entrega de las cantidades establecidas en el Anexo de Condiciones Económicas, abonándose con independencia y aparte de los sueldos del presente convenio.
+
+Las personas trabajadoras a las que el párrafo primero de este artículo no les reconoce derecho a manutención, tendrán derecho a bocadillo o a una compensación en metálico, si su horario de trabajo incluye los periodos comprendidos entre las 12 y las 16 horas, o entre las 20 y las 24 horas, en las cantidades establecidas en el Anexo de Condiciones Económicas.`},
+
+    {num:"46", titulo:"Alojamiento", texto:
+`Las personas trabajadoras a las que se les reconozca el derecho de alojamiento, lo percibirán como compensación salarial, en especie, con cargo a la empresa.
+
+El alojamiento se compensará y sustituirá mediante entrega a la persona trabajadora de las cantidades establecidas en el Anexo de Condiciones Económicas si así lo determina la empresa, que se abonarán con independencia y aparte de los salarios establecidos para el presente convenio.`},
+
+    {num:"47", titulo:"Quebranto de moneda", texto:
+`Las empresas abonarán en concepto de quebranto de moneda las cantidades establecidas en el Anexo de Condiciones Económicas, por cada caja, que se distribuirá entre el o los responsables de la misma, quienes se responsabilizarán solidariamente de las posibles faltas ante la empresa.`},
+
+    {num:"48", titulo:"Plus de formación", texto:
+`Se establece un Plus de Formación a favor de las personas trabajadoras cuyas empresas incumplan con la acción formativa en los términos contenidos en los artículos 61 a 63 de este convenio.
+
+Aquellas empresas que no hayan impartido las 25 horas formativas anuales en la forma y plazos previstos, procederán al abono de un Plus de Formación cuya cuantía se establece en el Anexo de Condiciones Económicas, si la persona trabajadora ha prestado sus servicios durante todo el año o en su parte proporcional correspondiente si fuera en un período inferior.`},
+
+    {num:"49", titulo:"Servicios extras", texto:
+`Se considerarán servicios extraordinarios de hostelería aquellos que por las especiales características de la prestación, breve duración, número de comensales o clientes, tales como banquetes, cócteles y celebraciones sociales, no pudieran ser prestados por las personas trabajadoras ligadas a la empresa, haciendo necesaria la contratación de personas trabajadoras ajenas a la empresa al efecto de prestar tal servicio extraordinario.
+
+La retribución de estos servicios extras es la establecida en el Anexo de Condiciones Económicas.
+
+Las personas trabajadoras llamadas para servicio extraordinario percibirán asimismo el plus de permanencia y la parte proporcional de la indemnización por terminación de contrato junto con el salario antes señalado diariamente.`},
+  ]
+},
+
+{
+  cap: "Capítulo 7. Derechos sindicales",
+  arts: [
+    {num:"50", titulo:"Representación legal de las personas trabajadoras", texto:
+`A. Las personas trabajadoras miembros del Comité de Empresa, las Delegadas y los Delegados de Personal dispondrán de 40 horas mensuales retribuidas a los efectos de realizar funciones sindicales, justificándose la utilización del tiempo por la Central Sindical a que pertenece la persona trabajadora y siempre que exista la citación previa.
+
+En la utilización de las horas sindicales, se tendrán en cuenta estos criterios:
+
+1. Los Comités de Empresa, Delegadas y Delegados de Personal podrán utilizar las horas sindicales para asistir a cursos de formación organizados por las Centrales Sindicales u otras entidades.
+
+2. Durante el tiempo de negociación de convenios no habrá limitación de horas sindicales.
+
+3. Las horas sindicales correspondientes al Comité de Empresa, Delegadas y Delegados de Personal de una misma empresa, podrán acumularse en favor de uno o varios de sus miembros.
+
+4. Los miembros del Comité de Empresa, Delegadas y Delegados de Personal participarán en los procesos de selección de personal.
+
+5. A requerimiento de las personas trabajadoras afiliadas a las Centrales Sindicales, las empresas descontarán de las nóminas mensuales de estas, el importe de la cuota sindical correspondiente, que lo entregarán o depositarán colectivamente donde sea indicado por las personas trabajadoras o la Central Sindical interesada.`},
+  ]
+},
+
+{
+  cap: "Capítulo 8. Otras disposiciones",
+  arts: [
+    {num:"51", titulo:"Comisión Mixta de Interpretación", texto:
+`De acuerdo con los artículos 85.3.e y 91 del Estatuto de los Trabajadores, se constituye una Comisión Paritaria del Convenio, que estará formada por 4 vocales nombrados por la parte empresarial y 4 nombrados por la parte sindical.
+
+Las funciones de esta Comisión Paritaria serán:
+
+a. Interpretación del Convenio y entender de los términos y condiciones para el conocimiento y resolución de las cuestiones en materia de aplicación e interpretación del Convenio Colectivo, a las cuales se deberá dar respuesta en un plazo de 30 días naturales desde la fecha en que la comisión sea conocedora de la misma.
+
+b. Mediación en los problemas y cuestiones que les sean sometidos.
+
+c. Vigilancia del cumplimiento de lo pactado.
+
+d. Evacuar los informes requeridos por la autoridad laboral.
+
+e. Conocer de la inaplicación de las condiciones del presente Convenio Colectivo a aquellas empresas que así lo soliciten y entender de los términos y condiciones para el conocimiento y resolución de las discrepancias tras la finalización del periodo de consultas sin acuerdo en materia de modificación sustancial de condiciones de trabajo o inaplicación de las condiciones del Convenio Colectivo, de acuerdo con lo establecido en los artículos 41.6 y 82.3 del Estatuto de los Trabajadores.
+
+f. La intervención que se acuerde en los supuestos de modificación sustancial colectiva de condiciones de trabajo o inaplicación de las condiciones del Convenio Colectivo, cuando no exista representación legal de las personas trabajadoras en la empresa.
+
+g. Emitir informe o dictamen vinculante para la parte que lo solicite de cuantas cuestiones y conflictos individuales o colectivos les sean sometidos a la misma, siempre y cuando afecten a la interpretación del articulado del presente Convenio Colectivo.
+
+h. Cuantas otras actividades tiendan a la eficacia de lo pactado, así como el desarrollo de funciones de adaptación o, en su caso, modificación del convenio durante su vigencia. En este caso, deberá incorporarse a la comisión paritaria la totalidad de los sujetos legitimados para la negociación, aunque no hayan sido firmantes del convenio, siendo exigible la concurrencia de los requisitos de legitimación previstos en los artículos 87 y 88 del Estatuto de los Trabajadores para que los acuerdos de modificación posean eficacia general.
+
+i. Cualesquiera otras que expresamente le vengan atribuidas por el articulado del presente Convenio Colectivo.
+
+Ambas partes convienen en dar conocimiento a la Comisión Paritaria de cuantas dudas, discrepancias y conflictos se produzcan como consecuencia de la interpretación del Convenio.
+
+La Comisión Paritaria se reunirá siempre a instancia de parte legítima, mediante solicitud por escrito dirigido a la misma y, en el cual, se hará constar necesariamente el asunto objeto de la convocatoria y los puntos de controversia, cumplimentando para ello el modelo que figura en el ANEXO I.
+
+El domicilio de la Comisión será el del Jurado Arbitral Laboral de Castilla-La Mancha en Ciudad Real.`},
+
+    {num:"52", titulo:"Legislación subsidiaria", texto:
+`En todo lo no pactado en este convenio colectivo se estará a lo dispuesto en el Acuerdo Laboral de ámbito Estatal para el sector de Hostelería y demás disposiciones legales vigentes.`},
+
+    {num:"53", titulo:"Unidad de lo pactado", texto:
+`Las tablas salariales que se incorporarán como anexo a este convenio colectivo, formarán parte inseparable del mismo y tendrán fuerza de obligar en la actividad de hostelería.
+
+Las condiciones pactadas forman un todo indivisible y a efectos de su aplicación práctica serán consideradas globalmente.`},
+
+    {num:"54", titulo:"Condiciones más beneficiosas", texto:
+`Se respetarán las condiciones más beneficiosas que con carácter global viniesen percibiendo las personas trabajadoras.`},
+
+    {num:"55", titulo:"Acuerdo de solución extrajudicial de conflictos", texto:
+`En caso de discrepancia surgida entre las partes por aplicación de las condiciones contenidas en este convenio y durante la vigencia del mismo, se estará a lo dispuesto en el Acuerdo Laboral de ámbito Estatal para el sector de Hostelería (ALEH) y en el Acuerdo de Solución Autónoma de Conflictos Laborales (ASAC) de Castilla-La Mancha.`},
+
+    {num:"56", titulo:"Cláusula de descuelgue", texto:
+`Las Empresas afectadas por este convenio colectivo podrán no aplicar la subida salarial, atendiendo a lo establecido en el artículo 82.3 del ET.`},
+  ]
+},
+
+{
+  cap: "Capítulo 9. Igualdad y no discriminación",
+  arts: [
+    {num:"57", titulo:"Igualdad", texto:
+`Se estará a lo dispuesto en el Acuerdo Laboral de ámbito Estatal para el sector de Hostelería.
+
+Las partes firmantes del presente convenio rechazan cualquier tipo de discriminación y, en especial, la que pueda producirse respecto de las personas trabajadoras discapacitadas o inmigrantes y respecto de cualquier persona por razón de su raza, religión o ideología. Toda conducta discriminatoria en el sentido apuntado queda expresamente prohibida no sólo por el ordenamiento jurídico español, sino también por este convenio.`},
+
+    {num:"58", titulo:"Medidas dirigidas a promover la igualdad de trato de oportunidades entre mujeres y hombres en el ámbito laboral", texto:
+`Las empresas se comprometen a la consecución de la igualdad real efectiva (de trato y oportunidades) de mujeres y hombres en el acceso a la empresa, la contratación y las condiciones de trabajo, la promoción profesional, la formación, la retribución, la conciliación de la vida personal, familiar y laboral y la salud laboral, garantizando los recursos humanos y materiales que sean necesarios para su debida implantación, seguimiento y evaluación. Los representantes sindicales velarán por el cumplimiento de los anteriores principios y tendrán acceso a la información pertinente para tal fin.
+
+Asimismo, se respetará la igualdad de trato y de oportunidades en el ámbito laboral y, con esta finalidad, deberán adoptarse medidas dirigidas a evitar cualquier tipo de discriminación laboral por razones de género, estado civil, edad, raza, nacionalidad, condición social, ideas religiosas o políticas, afiliación o no a un sindicato, así como por razones de lengua, entre mujeres y hombres, medidas que deberán negociar y en su caso acordar, con los representantes legales de las personas trabajadoras, conforme determine la legislación laboral y que respetarán los siguientes principios:
+
+— El establecimiento de sistemas de selección, clasificación, promoción y formación sobre la base de criterios técnicos, objetivos y neutros por razón de género que respetaran el principio de igualdad de oportunidades.
+
+— La no discriminación por razón de sexo en materia de retribuciones, jornada laboral y demás condiciones de trabajo.
+
+— Las ofertas de empleo se redactarán de manera que no contengan mención alguna que induzca a pensar que las mismas se dirigen exclusivamente a personas de uno u otro género.
+
+Salvo por razones técnicas, organizativas, económicas o productivas, graves y probadas, no se realizarán modificaciones sustanciales ni funcionales de las condiciones de trabajo de las mujeres embarazadas, personas que se encuentren disfrutando la suspensión por maternidad o paternidad, personas que tengan a su cuidado directo menores de tres años, mayores enfermos y discapacitados o aquellas que estén ejerciendo derechos de conciliación.
+
+En el caso de empresas de más de doscientas cincuenta personas trabajadoras, las medidas dirigidas a promover la igualdad de trato y oportunidades entre hombres y mujeres, deberán dirigirse a la elaboración y aplicación de un plan de igualdad. Para el resto de empresas la elaboración de los planes de igualdad será voluntaria.`},
+
+    {num:"59", titulo:"Medidas específicas en prevención del acoso sexual y acoso por razón de sexo en el trabajo", texto:
+`1. Las empresas deberán promover condiciones de trabajo que eviten el acoso sexual y el acoso por razón de sexo y arbitrar procedimientos específicos para su prevención y para dar cauce a las denuncias o reclamaciones que hayan sido objeto del mismo.
+
+Con esta finalidad se podrán establecer medidas que deberán negociarse con los representantes de los trabajadores, tales como la elaboración y difusión de códigos de buenas prácticas, la realización de campañas informativas o acciones de formación.
+
+2. Los representantes de los trabajadores deberán contribuir a prevenir el acoso sexual y el acoso por razón sexo en el trabajo mediante la sensibilización de los trabajadores y trabajadoras frente al mismo y la información a la dirección de la empresa de las conductas o comportamientos de que tuvieran conocimiento y que pudieran propiciarlo.
+
+A tal efecto deberán establecerse, con carácter general las siguientes medidas preventivas:
+
+a. Sensibilizar a la plantilla tanto respecto a la definición y formas de manifestación de los diferentes tipos de acoso, como en los procedimientos de actuación establecidos en el presente artículo para los casos en que este pudiera producirse.
+
+b. Impulsar la aplicación del principio de no tolerancia y de corresponsabilidad en cuanto a los comportamientos laborales que se desarrollen en la empresa, en especial por parte del personal con mayor nivel de mando y de responsabilidad.
+
+c. Promover iniciativas formativas que favorezcan la comunicación entre personal con capacidad de mando y los respectivos equipos de trabajo en cualquiera de los niveles jerárquicos.
+
+d. Las personas que se sientan acosadas podrán ponerlo inmediatamente en conocimiento de la dirección de la empresa de manera directa, o bien a través de la representación sindical. También podrá formular una denuncia de acoso cualquier persona que tenga conocimiento de la situación. En cualquier caso, la dirección de la empresa contará en todas sus actuaciones con la representación sindical, rigiéndose ambas en todo caso por los siguientes principios y criterios de actuación:
+
+e. Garantía de confidencialidad y protección de la intimidad y la dignidad de las personas implicadas, con la preservación, en todo caso, de la identidad y circunstancias personales de quien denuncie. A tal fin las personas responsables de atender la denuncia de acoso respetarán en todo caso las condiciones de sigilo y discreción que indique la persona afectada.
+
+f. Garantía de que la persona acosada pueda seguir en su puesto de trabajo en las mismas condiciones si esa es su voluntad. A tal fin se adoptarán las medidas cautelares orientadas al cese inmediato de la situación de acoso, teniendo en cuenta las necesidades organizativas y productivas que pudieran concurrir.
+
+g. Prioridad y tramitación urgente de las actuaciones, que se orientarán a la investigación exhaustiva de los hechos por los medios que más eficazmente permitan esclarecerlos. A tal fin, las personas responsables de atender la denuncia se entrevistarán con las partes promoviendo soluciones que sean aceptadas por las partes implicadas, para lo cual éstas podrán estar acompañadas de quien decidan.
+
+h. Garantía de actuación, adoptando las medidas necesarias, incluidas en su caso las de carácter disciplinario, contra la persona o personas cuyas conductas de acoso resulten probadas. A tal fin, si en el plazo de diez días hábiles desde que se tuvo conocimiento de la denuncia no se hubiera alcanzado una solución, se dará inicio al correspondiente procedimiento formal para el definitivo esclarecimiento de los hechos denunciados, cuya duración nunca excederá de quince días naturales. Las partes implicadas podrán ser asistidas y acompañadas por una persona de su confianza, quien deberá guardar sigilo y confidencialidad sobre toda la información a que tenga acceso y especialmente respecto de las actuaciones llevadas a cabo por las personas responsables de atender la denuncia.
+
+i. Indemnidad frente a las represalias, garantizando que no se producirá trato adverso o efecto negativo en una persona como consecuencia de la presentación por su parte de denuncia o manifestación en cualquier sentido dirigida a impedir la situación de acoso y a iniciar las actuaciones establecidas en el presente artículo.
+
+Una vez concluidas las anteriores actuaciones, y en un plazo máximo de quince días naturales, la dirección de la empresa adoptará las medidas correctoras comunicándolas a la representación sindical.`},
+
+    {num:"60", titulo:"Promoción del empleo para personas con discapacidad", texto:
+`Las partes se comprometen al cumplimiento y desarrollo de lo previsto en el Real Decreto 1/2013 de 29 de noviembre.`},
+  ]
+},
+
+{
+  cap: "Capítulo 10. Formación profesional",
+  arts: [
+    {num:"61", titulo:"Formación profesional", texto:
+`Las partes firmantes asumen el contenido íntegro de lo dispuesto por el Acuerdo Laboral de ámbito Estatal para el sector de Hostelería, declarando que este desarrollará sus efectos en el ámbito funcional del presente convenio colectivo. Queda facultada la comisión paritaria para desarrollar cuantas iniciativas sean necesarias conducentes a efectos de la aplicación de dicho acuerdo.
+
+En aras a conseguir un sector moderno y competitivo, es necesario contar con empresarios y personas trabajadoras con una formación adecuada y permanentemente actualizada. En consecuencia, la participación activa en aquellos modelos que garanticen el desarrollo de una formación de calidad es una apuesta necesaria para el desarrollo y mantenimiento de un sector hostelero competitivo y para la consecución de un empleo estable y de calidad dentro de la hostelería.`},
+
+    {num:"62", titulo:"Acreditación de la formación", texto:
+`Sin perjuicio de que cualquier organismo, centro, entidad, etc.… que cumpla todos los criterios que respecto de su acreditación determina la Orden de 18/10/2012 de la Consejería de Empleo y Economía, pueda impartir formación en el sector, la Comisión Paritaria de este Convenio, y con objeto de que dicha formación cumpla los objetivos establecidos en el artículo anterior, se constituye como Comisión para la Formación que visará y acreditará que todos los planes y los certificados de formación cumplen dichos objetivos.
+
+En este sentido, se establecen estas opciones de acreditación:
+
+1. Mediante certificación expedida por organización empresarial representativa del sector, en los términos establecidos por el artículo 87.3.c) del Estatuto de los Trabajadores, y que participe o promueva la formación específica para hostelería, que acredite su adhesión a la misma, con el visado de la Comisión Paritaria.
+
+2. Mediante certificación expedida por la empresa que acredite el desarrollo de planes individuales de formación, con el visado de la Comisión Paritaria. Dichas certificaciones tendrán validez anual, pudiendo ser renovadas automáticamente si se mantiene el cumplimiento de los requisitos tenidos en cuenta para su expedición, o revocadas en cualquier momento si se dejasen de cumplir.
+
+3. Mediante certificación expedida por organización sindical representativa del sector que acredite la participación de la empresa en algún plan agrupado de formación continua en materia de hostelería desarrollado por ellos, con el visado de la Comisión Paritaria.
+
+Para las personas trabajadoras con contrato de duración superior a un año la acreditación de la formación deberá de realizarse antes del 30 de enero del año posterior al acreditar.
+
+Para las personas trabajadoras con contrato inferior al año, la fecha tope de acreditación de la formación será la fecha de fin de contrato.
+
+Las horas de formación obligatoria anual se limitan a un máximo de 25, que se realizarán dentro de la jornada de trabajo.`},
+
+    {num:"63", titulo:"Información sobre formación", texto:
+`Las organizaciones firmantes de este convenio, darán cuenta a la Comisión de Interpretación del mismo de la programación de planes y acciones formativas, con carácter previo a la realización de los mismos y con periodicidad anual, así como de los resultados y ejecución de los mismos.`},
+
+    {num:"64", titulo:"Manipulación de alimentos y alergénicos", texto:
+`En ánimo en fomentar la profesionalidad en el sector, será por cuenta de la empresa y en su caso, facilitar la necesaria formación de las personas trabajadoras para la obtención del carnet de manipulador de alimentos, así como los conocimientos necesarios en materia de alergénicos.`},
+  ]
+},
+
+{
+  cap: "Disposiciones adicionales",
+  arts: [
+    {num:"D.A. 1ª", titulo:"Clasificación profesional", texto:
+`Las personas trabajadoras que prestan servicios en las empresas incluidas en el ámbito de aplicación de este convenio, quedan clasificadas en los grupos profesionales establecidos en el Acuerdo Laboral de ámbito Estatal para el Sector de Hostelería.
+
+Como consecuencia de esta adaptación, se acuerda fijar 4 niveles salariales, para los diferentes grupos profesionales adaptados a las categorías profesionales existentes en el convenio colectivo conforme se contiene en el ANEXO II.
+
+Las personas trabajadoras que, como consecuencia de su nuevo encuadramiento, se encuentren en otro nivel salarial inferior al que tenían, se les respetará el salario que venían percibiendo con respecto al nivel salarial que tenían fijado con anterioridad, aplicando en su caso la subida salarial pactada.
+
+Ver tabla completa de grupos profesionales en el apartado «Anexo II – Clasificación profesional».`},
+
+    {num:"D.A. 2ª", titulo:"Protocolo de medidas LGTBI", texto:
+`La Comisión Negociadora acuerda, que será de aplicación obligatoria el anexo 2 del Real Decreto 1026/2024, de 8 de octubre, por el que se desarrolla el conjunto planificado de las medidas de igualdad y no discriminación de las personas LGTBI, por orientación e identidad sexual y expresión de género.`},
+  ]
+},
+
+{
+  cap: "Anexo I · Formulario Comisión Paritaria",
+  arts: [
+    {num:"Anexo I", titulo:"Formulario de consulta a la Comisión Paritaria", texto:
+`Modelo oficial para dirigir consultas a la Comisión Mixta de Interpretación del Convenio Colectivo de Hostelería de Ciudad Real.
+
+Datos a incluir en la solicitud:
+
+— Consultante: Nombre, dirección/correo electrónico, teléfono de contacto.
+
+— Descripción de los hechos determinantes de la consulta.
+
+— Artículo/s del texto que afectan a la consulta.
+
+— Documentación que acompaña / otra información.
+
+— Fecha y firma.
+
+La solicitud debe dirigirse por escrito a la Comisión Paritaria, cuyo domicilio es el del Jurado Arbitral Laboral de Castilla-La Mancha en Ciudad Real (ver artículo 51).`},
+  ]
+},
+
+{
+  cap: "Anexo II · Clasificación profesional",
+  arts: [
+    {num:"Área 1ª", titulo:"Recepción-Conserjería, Relaciones Públicas, Administración y Gestión", texto:
+`NIVEL 1 (Grupo Primero):
+— Jefe/a de recepción
+— Jefe/a de administración
+— Jefe/a comercial
+— 2ª Jefe/a de recepción
+— Primer/a conserje
+
+NIVEL 2 (Grupo Segundo):
+— Técnico PRL
+— Recepcionista
+— Conserje
+— Administrativo/a
+— Relaciones Públicas
+— Comercial
+
+NIVEL 3 (Grupo Segundo):
+— Ayudante de recepción y conserjería
+— Ayudante administrativo/a
+— Telefonista
+
+NIVEL 4 (Grupo Tercero):
+— Auxiliar de recepción y conserjería`},
+
+    {num:"Área 2ª", titulo:"Cocina y Economato", texto:
+`NIVEL 1 (Grupo Primero):
+— Jefe/a de cocina
+— Jefe/a de catering
+— 2º Jefe/a de cocina
+
+NIVEL 2 (Grupo Segundo):
+— Jefe/a de partida
+— Encargado/a de economato
+— Cocinero
+— Repostero
+
+NIVEL 3 (Grupo Segundo):
+— Ayudante de cocina
+— Ayudante de economato
+
+NIVEL 4 (Grupo Tercero):
+— Auxiliar de cocina y economato`},
+
+    {num:"Área 3ª", titulo:"Restaurante, Sala, Bar y Similares, Colectividades y Pista para Catering", texto:
+`NIVEL 1 (Grupo Primero):
+— Jefe/a de restaurante o sala
+— Jefe/a de operaciones de catering
+— Gerente de Centro
+— 2ª Jefe de restaurante o sala
+
+NIVEL 2 (Grupo Segundo):
+— Jefe/a de sector
+— Supervisor/a de catering
+— Supervisor/a de restauración moderna
+— Supervisor/a de colectividades
+— Jefe/a de sala de catering
+— Camarero/a
+— Barman/Barwoman
+— Sumiller
+— Escanciador
+— Preparador/a Montador/a de catering
+— Conductor/a equipo catering
+— Preparador/a restauración moderna
+
+NIVEL 3 (Grupo Tercero):
+— Monitor/a Cuidador/a de colectividades
+— Repartidor/a de comidas y bebidas
+— Ayudante de camarero/a
+— Ayudante equipo catering
+
+NIVEL 4 (Grupo Tercero):
+— Asistente colectividades
+— Asistente preparador/a montador/a catering
+— Asistente restauración moderna`},
+
+    {num:"Área 4ª", titulo:"Pisos y Limpieza", texto:
+`NIVEL 2 (Grupo Primero):
+— Gobernante/a o encargado/a general
+— Subgobernante/a o encargado/a de sección
+
+NIVEL 3 (Grupo Segundo):
+— Camarero/a de pisos
+
+NIVEL 4 (Grupo Tercero):
+— Auxiliar de pisos y limpieza`},
+
+    {num:"Área 5ª", titulo:"Servicios de Mantenimiento y Servicios Auxiliares", texto:
+`NIVEL 1 (Grupo Primero):
+— Jefe/a de servicios de catering
+
+NIVEL 2 (Grupo Primero):
+— Encargado/a mantenimiento y servicios auxiliares
+— Encargado/a mantenimiento y servicios técnicos catering (flota o instalaciones y edificios)
+
+NIVEL 3 (Grupo Segundo):
+— Encargado/a de sección
+— Especialista mantenimiento y servicios auxiliares
+— Especialista mantenimiento y servicios técnicos catering (flota o instalaciones y edificios)
+
+NIVEL 4 (Grupo Tercero):
+— Auxiliar de mantenimiento y servicios auxiliares`},
+
+    {num:"Área 6ª", titulo:"Servicios Complementarios", texto:
+`NIVEL 1 (Grupo Primero):
+— Responsable servicio
+
+NIVEL 2 (Grupo Segundo):
+— Técnico/a servicio (fisioterapeuta, dietista y otros titulados en Ciencias de la Salud)
+— Especialista servicio (socorrista o especialista primeros auxilios, animador/a turístico o tiempo libre, monitor/a deportivo/a, pinchadiscos, masajista, quiromasajista, esteticista, especialista termal o balneario, hidroterapeuta y especialista atención al cliente)
+
+NIVEL 4 (Grupo Tercero):
+— Auxiliar servicio (auxiliar atención al cliente y auxiliar piscina o balneario)`},
+  ]
+},
+
+{
+  cap: "Anexo III · Tablas salariales 2025-2026",
+  esTabla: true,
+  arts: [
+    {num:"Tabla 2025", titulo:"Tabla salarial 2025 (definitiva)", texto:"tabla2025"},
+    {num:"Tabla 2026", titulo:"Tabla salarial 2026 (provisional, +3,5% retroactivo 01/01/2026)", texto:"tabla2026"},
+    {num:"Tabla 2027", titulo:"Tabla salarial 2027", texto:
+`La tabla salarial definitiva de 2027 no figura aún en este documento (pendiente de publicación).
+
+Según el artículo 39, el incremento para 2027 será del 3,5% sobre las condiciones económicas de 2026, con posible revisión adicional de hasta el 0,5% si el IPC interanual a 31/12/2027 supera dicho 3,5%.`},
+  ]
+},
+];
+
+/* ==========================================================
+   TABLAS SALARIALES (HTML)
+   ========================================================== */
+const TABLA_2025 = `
+<table class="salarial">
+<tr><th colspan="2">Salario Base (art. 39) — Nivel salarial / Salario mensual</th></tr>
+<tr><td>Nivel 1</td><td>1.162,10 €</td></tr>
+<tr><td>Nivel 2</td><td>1.154,02 €</td></tr>
+<tr><td>Nivel 3</td><td>1.085,88 €</td></tr>
+<tr><td>Nivel 4</td><td>1.053,28 €</td></tr>
+<tr class="section-row"><td colspan="2">Plus de permanencia (art. 41) — Jornada semanal / Cantidad</td></tr>
+<tr><td>De 31 a 40 horas</td><td>91,90 €</td></tr>
+<tr><td>De 21 a 30 horas</td><td>68,20 €</td></tr>
+<tr><td>De 11 a 20 horas</td><td>45,95 €</td></tr>
+<tr><td>De 0 a 10 horas</td><td>22,98 €</td></tr>
+<tr class="section-row"><td colspan="2">Otros complementos</td></tr>
+<tr><td>Plus de nocturnidad (art. 42)</td><td>6,22 €</td></tr>
+<tr><td>Plus de distancia (art. 44)</td><td>0,31 € / km</td></tr>
+<tr class="section-row"><td colspan="2">Manutención (art. 45)</td></tr>
+<tr><td>Completa</td><td>81,39 €</td></tr>
+<tr><td>Bocadillo</td><td>28,99 €</td></tr>
+<tr class="section-row"><td colspan="2">Otros</td></tr>
+<tr><td>Alojamiento (art. 46)</td><td>32,52 €</td></tr>
+<tr><td>Quebranto de moneda (art. 47)</td><td>39,98 €</td></tr>
+<tr><td>Plus de formación (art. 48)</td><td>225,00 €</td></tr>
+<tr class="section-row"><td colspan="2">Servicios extras (art. 49)</td></tr>
+<tr><td>Primeras 4 horas</td><td>47,78 €</td></tr>
+<tr><td>Hora a partir de la 4ª</td><td>15,25 €</td></tr>
+<tr class="section-row"><td colspan="2">Indemnización por accidente de trabajo (art. 29)</td></tr>
+<tr><td>Importe</td><td>26.539,01 €</td></tr>
+</table>
+`;
+
+const TABLA_2026 = `
+<table class="salarial">
+<tr><th colspan="2">Salario Base (art. 39) — Nivel salarial / Salario mensual</th></tr>
+<tr><td>Nivel 1</td><td>1.202,77 €</td></tr>
+<tr><td>Nivel 2</td><td>1.194,41 €</td></tr>
+<tr><td>Nivel 3</td><td>1.123,89 €</td></tr>
+<tr><td>Nivel 4</td><td>1.090,14 €</td></tr>
+<tr class="section-row"><td colspan="2">Plus de permanencia (art. 41) — Jornada semanal / Cantidad</td></tr>
+<tr><td>De 31 a 40 horas</td><td>95,12 €</td></tr>
+<tr><td>De 21 a 30 horas</td><td>70,59 €</td></tr>
+<tr><td>De 11 a 20 horas</td><td>47,56 €</td></tr>
+<tr><td>De 0 a 10 horas</td><td>23,78 €</td></tr>
+<tr class="section-row"><td colspan="2">Otros complementos</td></tr>
+<tr><td>Plus de nocturnidad (art. 42)</td><td>6,44 €</td></tr>
+<tr><td>Plus de distancia (art. 44)</td><td>0,32 € / km</td></tr>
+<tr class="section-row"><td colspan="2">Manutención (art. 45)</td></tr>
+<tr><td>Completa</td><td>84,24 €</td></tr>
+<tr><td>Bocadillo</td><td>30,00 €</td></tr>
+<tr class="section-row"><td colspan="2">Otros</td></tr>
+<tr><td>Alojamiento (art. 46)</td><td>33,66 €</td></tr>
+<tr><td>Quebranto de moneda (art. 47)</td><td>41,38 €</td></tr>
+<tr><td>Plus de formación (art. 48)</td><td>225,00 €</td></tr>
+<tr class="section-row"><td colspan="2">Servicios extras (art. 49)</td></tr>
+<tr><td>Primeras 4 horas</td><td>49,45 €</td></tr>
+<tr><td>Hora a partir de la 4ª</td><td>15,78 €</td></tr>
+<tr class="section-row"><td colspan="2">Indemnización por accidente de trabajo (art. 29)</td></tr>
+<tr><td>Importe</td><td>27.467,88 €</td></tr>
+</table>
+<p style="margin-top:10px; font-size:.8rem; color:#888;">Incremento del 3,5% sobre la tabla de 2025, con carácter retroactivo a 01/01/2026. Sujeta a revisión por IPC según artículo 39.</p>
+`;
+
+/* ==========================================================
+   ACCESOS RÁPIDOS (TAGS) — id de capítulo/artículo destino
+   ========================================================== */
+const ACCESOS = [
+  {label:"💰 Salario / tablas", target:"cap-10"},
+  {label:"🏖️ Vacaciones", target:"art-18"},
+  {label:"🕓 Jornada laboral", target:"art-15"},
+  {label:"🌙 Nocturnidad", target:"art-42"},
+  {label:"👶 Lactancia", target:"art-21"},
+  {label:"📋 Licencias y permisos", target:"art-20"},
+  {label:"🍽️ Manutención", target:"art-45"},
+  {label:"⚖️ Igualdad", target:"art-58"},
+  {label:"🚫 Acoso sexual", target:"art-59"},
+  {label:"👥 Clasificación profesional", target:"cap-9"},
+  {label:"📝 Excedencias", target:"art-25"},
+  {label:"🎓 Formación", target:"art-61"},
+];
+
+/* ==========================================================
+   RENDERIZADO
+   ========================================================== */
+const main = document.getElementById('main');
+const sidebar = document.getElementById('sidebar');
+
+function slugCap(i){ return 'cap-'+i; }
+function slugArt(num){ return 'art-' + num.toString().replace(/[^a-zA-Z0-9]/g,'').toLowerCase(); }
+
+// Render sidebar
+DATA.forEach((capitulo, i) => {
+  const item = document.createElement('div');
+  item.className = 'cap-item';
+
+  const btn = document.createElement('button');
+  btn.className = 'cap-btn';
+  btn.dataset.target = slugCap(i);
+  btn.innerHTML = `<span>${capitulo.cap}</span><span>▾</span>`;
+  item.appendChild(btn);
+
+  const list = document.createElement('div');
+  list.className = 'art-list';
+  list.id = 'list-' + slugCap(i);
+  capitulo.arts.forEach(art => {
+    const a = document.createElement('a');
+    a.className = 'art-link';
+    a.href = '#' + slugArt(art.num);
+    a.textContent = `Art. ${art.num} — ${art.titulo}`;
+    list.appendChild(a);
+  });
+  item.appendChild(list);
+  sidebar.appendChild(item);
+
+  btn.addEventListener('click', () => {
+    document.getElementById(slugCap(i)).scrollIntoView({behavior:'smooth', block:'start'});
+    list.classList.add('abierto');
+  });
+});
+
+// home button
+sidebar.querySelector('.cap-btn[data-target="home"]').addEventListener('click', () => {
+  document.getElementById('home').scrollIntoView({behavior:'smooth'});
+});
+
+// Render main content
+function renderMain(){
+  let html = '';
+
+  // HOME
+  html += `
+  <div class="card" id="home">
+    <div class="hero">
+      <h2>Convenio Colectivo de Hostelería — Ciudad Real (2025-2027)</h2>
+      <p>Consulta el texto completo organizado por capítulos y artículos. Usa el buscador superior para encontrar conceptos concretos (por ejemplo: "vacaciones", "nocturnidad", "lactancia", "salario base"...) o pulsa uno de los accesos rápidos.</p>
+      <div class="alert-pendiente" style="margin-top:16px;">⚠️ Texto «pendiente de publicación» oficial — herramienta de consulta interna no oficial.</div>
+      <div class="quick-tags">
+        ${ACCESOS.map(a=>`<button class="tag" data-target="${a.target}">${a.label}</button>`).join('')}
+      </div>
+    </div>
+    <div class="home-grid">
+      ${DATA.map((c,i)=>`
+        <div class="home-card" data-target="${slugCap(i)}">
+          <h3>${c.cap}</h3>
+          <p>${c.arts.length} artículo${c.arts.length>1?'s':''}${c.arts[0] ? ' · Art. '+c.arts[0].num+(c.arts.length>1?' – '+c.arts[c.arts.length-1].num:'') : ''}</p>
+        </div>
+      `).join('')}
+    </div>
+  </div>
+  `;
+
+  // CAPITULOS
+  DATA.forEach((capitulo, i) => {
+    html += `<div class="card" id="${slugCap(i)}">`;
+    html += `<h2 class="cap-title">${capitulo.cap}</h2>`;
+    capitulo.arts.forEach(art => {
+      html += `<div class="articulo" id="${slugArt(art.num)}" data-search="${(art.titulo+' '+ (capitulo.esTabla? '' : art.texto)).toLowerCase().replace(/"/g,'')}">`;
+      html += `<h3><span class="art-num">${art.num.toString().startsWith('Anexo') || art.num.toString().startsWith('Área') || art.num.toString().startsWith('D.A') || art.num.toString().startsWith('Tabla') ? art.num : 'Art. '+art.num}</span> ${art.titulo}</h3>`;
+      if(capitulo.esTabla){
+        if(art.texto === 'tabla2025') html += `<div class="cuerpo">${TABLA_2025}</div>`;
+        else if(art.texto === 'tabla2026') html += `<div class="cuerpo">${TABLA_2026}</div>`;
+        else html += `<div class="cuerpo">${escapeHTML(art.texto)}</div>`;
+      } else {
+        html += `<div class="cuerpo">${escapeHTML(art.texto)}</div>`;
+      }
+      html += `</div>`;
+    });
+    html += `</div>`;
+  });
+
+  main.innerHTML = html;
+}
+
+function escapeHTML(str){
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+renderMain();
+
+// quick tags & home cards click
+main.addEventListener('click', (e) => {
+  const t = e.target.closest('[data-target]');
+  if(!t) return;
+  const target = t.dataset.target;
+  const el = document.getElementById(target);
+  if(el){
+    el.scrollIntoView({behavior:'smooth', block:'start'});
+    // si es artículo, abrir su lista en el sidebar
+    const list = el.closest('.card');
+  }
+});
+
+/* ==========================================================
+   BUSCADOR
+   ========================================================== */
+const buscador = document.getElementById('buscador');
+const clearBtn = document.getElementById('clearBtn');
+const searchInfo = document.getElementById('searchInfo');
+
+function quitarAcentos(s){
+  return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+}
+
+function highlight(el, term){
+  // Reemplaza el texto plano de .cuerpo (solo si no es tabla) resaltando coincidencias
+  const cuerpo = el.querySelector('.cuerpo');
+  if(!cuerpo) return;
+  if(cuerpo.querySelector('table')) return; // no tocar tablas
+
+  if(!cuerpo.dataset.original){
+    cuerpo.dataset.original = cuerpo.innerHTML;
+  }
+  if(!term){
+    cuerpo.innerHTML = cuerpo.dataset.original;
+    return;
+  }
+  const original = cuerpo.dataset.original;
+  const re = new RegExp('('+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+  cuerpo.innerHTML = original.replace(re, '<mark>$1</mark>');
+}
+
+function ejecutarBusqueda(){
+  const raw = buscador.value.trim();
+  const term = quitarAcentos(raw.toLowerCase());
+  clearBtn.style.display = raw ? 'flex' : 'none';
+
+  const articulos = document.querySelectorAll('.articulo');
+  const home = document.getElementById('home');
+
+  if(!term){
+    articulos.forEach(a => { a.classList.remove('oculto'); highlight(a, ''); });
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('oculto'));
+    home.classList.remove('oculto');
+    searchInfo.style.display = 'none';
+    return;
+  }
+
+  home.classList.add('oculto');
+  let count = 0;
+
+  document.querySelectorAll('.card').forEach(card => {
+    if(card.id === 'home') return;
+    let any = false;
+    card.querySelectorAll('.articulo').forEach(art => {
+      const data = quitarAcentos(art.dataset.search || '');
+      if(data.includes(term)){
+        art.classList.remove('oculto');
+        highlight(art, raw);
+        any = true;
+        count++;
+      } else {
+        art.classList.add('oculto');
+        highlight(art, '');
+      }
+    });
+    card.classList.toggle('oculto', !any);
+  });
+
+  searchInfo.style.display = 'block';
+  searchInfo.textContent = count === 0
+    ? `Sin resultados para "${raw}".`
+    : `${count} artículo${count>1?'s':''} encontrado${count>1?'s':''} para "${raw}".`;
+}
+
+buscador.addEventListener('input', ejecutarBusqueda);
+clearBtn.addEventListener('click', () => {
+  buscador.value = '';
+  ejecutarBusqueda();
+  buscador.focus();
+});
+
+/* ==========================================================
+   SCROLL TOP & SIDEBAR ACTIVO
+   ========================================================== */
+const scrollTopBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+  scrollTopBtn.style.display = window.scrollY > 400 ? 'block' : 'none';
+
+  // Marcar capítulo activo en sidebar
+  let current = null;
+  document.querySelectorAll('.card').forEach(card => {
+    const rect = card.getBoundingClientRect();
+    if(rect.top <= 160) current = card.id;
+  });
+  document.querySelectorAll('.cap-btn').forEach(b => b.classList.remove('activo'));
+  if(current && current !== 'home'){
+    const btn = document.querySelector(`.cap-btn[data-target="${current}"]`);
+    if(btn) btn.classList.add('activo');
+  } else {
+    document.querySelector('.cap-btn[data-target="home"]').classList.add('activo');
+  }
+});
+
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+
+// Abrir lista del capítulo al hacer click en enlace de artículo (desde búsqueda externa, etc.)
+document.querySelectorAll('.art-link').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const id = link.getAttribute('href').substring(1);
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+</script>
+
+</body>
+</html>
